@@ -13,14 +13,21 @@ wsl --install -d Debian
 ## Windows tooling
 ```
 choco install microsoft-windows-terminal
+choco install jetbrainstoolbox
 ```
 
-## WSL tooling
+## DEV tooling
 ```
 apt install vim
 apt install git
 apt install curl
 apt install zip
+apt install maven
+apt install zoxide
+```
+
+```
+Install Oh-my-zsh
 ```
 
 ## SDK man
@@ -38,13 +45,6 @@ Configure ssh/config to use the key for github.com
 ```
 git config --global user.email "ilja.kempf@pm.me"
 git config --global user.name "ilja"
-```
-
-## Dev tools
-```
-choco install jetbrainstoolbox
-choco install zip
-choco install maven
 ```
 
 ## AI tools
