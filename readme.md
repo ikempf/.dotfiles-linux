@@ -5,17 +5,23 @@ Install chocolatey:
 https://chocolatey.org/install#individual
 
 ## Install WSL
-```wsl --install```
-```wsl --install -d Debian```
+```
+wsl --install
+wsl --install -d Debian
+```
 
 ## Windows tooling
-```choco install microsoft-windows-terminal```
+```
+choco install microsoft-windows-terminal
+```
 
 ## WSL tooling
-```apt install vim```
-```apt install git```
-```apt install curl```
-```apt install zip```
+```
+apt install vim
+apt install git
+apt install curl
+apt install zip
+```
 
 ## SDK man
 ```
@@ -29,10 +35,20 @@ sdk install springboot
 Create a new github/github.pub ssh key.
 Configure ssh/config to use the key for github.com
 
-```git config --global user.email "ilja.kempf@pm.me"```
-```git config --global user.name "ilja"```
+```
+git config --global user.email "ilja.kempf@pm.me"
+git config --global user.name "ilja"
+```
 
 ## Dev tools
-```choco install jetbrainstoolbox```
-```choso install zip```
-```choco install maven```
+```
+choco install jetbrainstoolbox
+choco install zip
+choco install maven
+```
+
+## AI tools
+```
+Install claude code
+Install codex
+```
