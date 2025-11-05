@@ -28,6 +28,9 @@ apt install zoxide
 
 ```
 Install Oh-my-zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git
 ```
 
 ## SDK man
@@ -52,3 +55,9 @@ git config --global user.name "ilja"
 Install claude code
 Install codex
 ```
+
+## Checkout this repository
+git init .
+git remote add origin git@github.com:ikempf/.dotfiles-win.git
+git pull origin master
+git branch --set-upstream-to=origin/master master
