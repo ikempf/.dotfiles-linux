@@ -1,6 +1,9 @@
 # Plugins
 plugins=(git)
 
+# Use binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 # ZSH config
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
