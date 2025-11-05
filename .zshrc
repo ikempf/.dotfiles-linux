@@ -1,5 +1,10 @@
 # Plugins
-plugins=(git)
+plugins=(
+	git
+	zsh-autosuggestions
+	fast-syntax-highlighting
+	zsh-you-should-use
+)
 
 # Use binaries
 export PATH="$HOME/.local/bin:$PATH"
@@ -12,6 +17,26 @@ source $ZSH/oh-my-zsh.sh
 # Zoxide
 export _ZO_DATA_DIR=~/.zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# Override git_prompt_info to ignore home directory git repo
+function git_prompt_info() {
+  local git_toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+  
+  # If we're in the home directory's git repo, return empty string
+  if [[ "$git_toplevel" == "$HOME" ]]; then
+    return
+  fi
+  
+  # Otherwise, call the original git_prompt_info logic
+  local ref
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
+# Add the function to precmd hooks (runs before each prompt)
+precmd_functions+=(_disable_home_git_prompt)
+
 
 # Sdkman
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
