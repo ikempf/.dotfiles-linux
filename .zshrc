@@ -6,8 +6,9 @@ plugins=(
 	zsh-you-should-use
 )
 
-# Use binaries
+# Add binaries
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # ZSH config
 export ZSH="$HOME/.oh-my-zsh"
@@ -37,6 +38,15 @@ function git_prompt_info() {
 # Add the function to precmd hooks (runs before each prompt)
 precmd_functions+=(_disable_home_git_prompt)
 
+# Docker
+alias dockerContainerRemove='docker rm -f $(docker ps -a -q)'
+alias dockerImageRemove='docker rmi -f $(docker images -q)'
+alias dockerVolumeRemove='docker volume rm $(docker volume ls -qf dangling=true)';
+alias dockerRemove='dockerContainerRemove'
+alias dockerSoftRemove='docker container prune -f'
+
+# Bat
+alias bat='batcat'
 
 # Sdkman
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

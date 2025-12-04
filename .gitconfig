@@ -1,3 +1,8 @@
 [user]
 	email = ilja.kempf@pm.me
 	name = ilja
+[core]
+	autocrlf = input
+	eol = lf
+[credential]
+	helper = store
