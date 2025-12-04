@@ -24,6 +24,9 @@ apt install curl
 apt install zip
 apt install maven
 apt install zoxide
+apt install silversearcher-ag
+apt install bat
+apt install mitmproxy 
 ```
 
 ```
