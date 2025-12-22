@@ -26,9 +26,13 @@ apt install maven
 apt install zoxide
 apt install silversearcher-ag
 apt install bat
-apt install mitmproxy 
+apt install mitmproxy
+apt install fzf
+apt install ripgrep
+npm install -g @mermaid-js/mermaid-cli
 ```
 
+## OhMyZsh
 ```
 Install Oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions
@@ -60,7 +64,9 @@ Install codex
 ```
 
 ## Checkout this repository
+```
 git init .
 git remote add origin git@github.com:ikempf/.dotfiles-win.git
 git pull origin master
 git branch --set-upstream-to=origin/master master
+```

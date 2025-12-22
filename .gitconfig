@@ -4,5 +4,6 @@
 [core]
 	autocrlf = input
 	eol = lf
+	editor = vim
 [credential]
 	helper = store
