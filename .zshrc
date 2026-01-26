@@ -1,24 +1,40 @@
+source .oh-my-zsh/oh-my-zsh.sh
+
+# ZPlug install
+export ZPLUG_HOME=~/.zplug
+if [[ ! -d $ZPLUG_HOME ]]; then
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
+source $ZPLUG_HOME/init.zsh
+
+# ZPlug init
+source ~/.zplug/init.zsh
+
 # Plugins
-plugins=(
-	git
-	fzf-tab
-	zsh-autosuggestions
-	fast-syntax-highlighting
-	zsh-you-should-use
-)
+zplug "plugins/git", from:oh-my-zsh
+zplug "Aloxaf/fzf-tab"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zdharma-continuum/fast-syntax-highlighting"
+zplug "MichaelAquilina/zsh-you-should-use" 
+ 
+# Theme
+zplug "agnoster/agnoster-zsh-theme", as:theme
+DEFAULT_USER="ilja"
+
+# Install plugins if not installed
+if ! zplug check; then
+  zplug install
+fi
+
+# Load plugins
+zplug load
 
 # Add binaries
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/opt/nvim/"
 export GOPATH="${GOPATH:-$HOME/go}"
 export PATH="$PATH:$GOPATH/bin"
-
-
-# ZSH config
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
-DEFAULT_USER="ilja"
-source $ZSH/oh-my-zsh.sh
+export PATH="$PATH:/snap/bin"
 
 # Zoxide
 export _ZO_DATA_DIR=~/.zoxide
