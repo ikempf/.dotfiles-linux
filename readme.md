@@ -68,6 +68,11 @@ git config --global user.name "ilja"
 ```
 Install claude code
 Install codex
+Install opencode
+
+## Theme
+Windows terminal: .config/windows-terminal/settings.json
+
 ```
 
 ## Checkout this repository
