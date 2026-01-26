@@ -18,26 +18,33 @@ choco install jetbrainstoolbox
 
 ## DEV tooling
 ```
-apt install vim
+apt install bat
 apt install git
+apt install lazygit
 apt install curl
 apt install zip
 apt install maven
 apt install zoxide
 apt install silversearcher-ag
-apt install bat
 apt install mitmproxy
-apt install fzf
-apt install ripgrep
 npm install -g @mermaid-js/mermaid-cli
 ```
 
 ## OhMyZsh
 ```
+apt install zsh
 Install Oh-my-zsh
-git clone https://github.com/zsh-users/zsh-autosuggestions
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git
+```
+
+## LazyVim
+```
+NerdFont:q
+apt install vim
+apt install fzf
+apt install ripgrep
+apt install fd
+apt install build-essential
+https://www.lazyvim.org/
 ```
 
 ## SDK man
