@@ -1,6 +1,7 @@
 # Plugins
 plugins=(
 	git
+	fzf-tab
 	zsh-autosuggestions
 	fast-syntax-highlighting
 	zsh-you-should-use
@@ -8,8 +9,10 @@ plugins=(
 
 # Add binaries
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:/opt/nvim/"
+export GOPATH="${GOPATH:-$HOME/go}"
+export PATH="$PATH:$GOPATH/bin"
+
 
 # ZSH config
 export ZSH="$HOME/.oh-my-zsh"
