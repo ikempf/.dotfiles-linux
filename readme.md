@@ -23,7 +23,8 @@ apt install git
 apt install lazygit
 apt install curl
 apt install zip
-apt install maven
+apt install unzip
+apt install telnet
 apt install zoxide
 apt install silversearcher-ag
 apt install mitmproxy
