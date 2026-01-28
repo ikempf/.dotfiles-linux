@@ -1,4 +1,4 @@
-source .oh-my-zsh/oh-my-zsh.sh
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 # ZPlug install
 export ZPLUG_HOME=~/.zplug
@@ -69,3 +69,6 @@ alias bat='batcat'
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
