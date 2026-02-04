@@ -43,8 +43,9 @@ Install NerdFont
 apt install vim
 apt install fzf
 apt install ripgrep
-apt install fd
+apt install fd-find
 apt install build-essential
+Install tree-sitter-cli
 Install LazyVim
 ```
 
