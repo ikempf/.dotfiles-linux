@@ -1,0 +1,21 @@
+import = [
+   "~/.config/alacritty/catppuccin-frappe.toml"
+]
+
+
+[window]
+padding.x = 10
+padding.y = 10
+
+decorations = "None"
+
+opacity = 0.8
+blur = true
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[shell]
+program = "/usr/bin/zsh"
+
