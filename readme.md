@@ -16,10 +16,18 @@ apt install mitmproxy
 npm install -g @mermaid-js/mermaid-cli
 ```
 
+
 ## Alacritty
 ```
 Install cargo/rustc
 Install alacritty
+```
+
+
+## Tmux
+```
+Install tpm
+apt install tmux
 ```
 
 
@@ -28,6 +36,7 @@ Install alacritty
 apt install zsh
 Install Oh-my-zsh
 chsh -s $(which zsh)
+
 ```
 
 

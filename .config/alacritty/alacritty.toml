@@ -8,7 +8,7 @@ padding.y = 10
 
 decorations = "None"
 
-opacity = 0.8
+opacity = 1
 blur = true
 
 [font.normal]
