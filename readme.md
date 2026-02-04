@@ -1,7 +1,5 @@
 # Linux dotfiles
 
-
-
 ## Dev tooling
 ```
 apt install bat
@@ -12,12 +10,13 @@ apt install zip
 apt install unzip
 apt install telnet
 apt install zoxide
+apt install eze
 apt install silversearcher-ag
 apt install mitmproxy
 npm install -g @mermaid-js/mermaid-cli
 ```
 
-## CLI
+## Alacritty
 ```
 Install cargo/rustc
 Install alacritty
@@ -28,6 +27,7 @@ Install alacritty
 ```
 apt install zsh
 Install Oh-my-zsh
+chsh -s $(which zsh)
 ```
 
 
