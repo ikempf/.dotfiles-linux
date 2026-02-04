@@ -62,8 +62,8 @@ Create a new github/github.pub ssh key.
 Configure ssh/config to use the key for github.com
 
 ```
-git config --global user.email "ilja.kempf@pm.me"
-git config --global user.name "ilja"
+git config --global user.email <>
+git config --global user.name <>
 ```
 
 ## AI tools
