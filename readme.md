@@ -39,13 +39,13 @@ Install Oh-my-zsh
 
 ## LazyVim
 ```
-NerdFont:q
+Install NerdFont
 apt install vim
 apt install fzf
 apt install ripgrep
 apt install fd
 apt install build-essential
-https://www.lazyvim.org/
+Install LazyVim
 ```
 
 ## SDK man
