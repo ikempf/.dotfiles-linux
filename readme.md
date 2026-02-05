@@ -75,7 +75,7 @@ git config --global user.name <>
 Install claude code
 Install codex
 Install opencode
-Install ai-shell
+Install mistral vibe
 ```
 
 
