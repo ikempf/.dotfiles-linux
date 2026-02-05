@@ -36,7 +36,6 @@ apt install tmux
 apt install zsh
 Install Oh-my-zsh
 chsh -s $(which zsh)
-
 ```
 
 

@@ -1,5 +1,3 @@
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
-
 # ZPlug install
 export ZPLUG_HOME=~/.zplug
 if [[ ! -d $ZPLUG_HOME ]]; then
