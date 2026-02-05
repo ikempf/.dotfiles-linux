@@ -11,17 +11,11 @@ decorations = "None"
 opacity = 1
 blur = true
 
-[font.normal]
-family = "Hack Nerd Font Mono"
-style = "Regular"
+[font]
+normal.family = "Hack Nerd Font Mono"
+normal.style = "Regular"
+size = 12
 
 [general]
-import = [
-   "~/.config/alacritty/catppuccin-frappe.toml"
-]
-
-[terminal]
-
-[terminal.shell]
-program = "/usr/bin/zsh"
+import = ["~/.config/alacritty/catppuccin-frappe.toml"]
 
