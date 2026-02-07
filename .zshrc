@@ -35,6 +35,7 @@ export PATH="$PATH:/opt/nvim/"
 export GOPATH="${GOPATH:-$HOME/go}"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/snap/bin"
+export PATH=$HOME/.opencode/bin:$PATH
 
 # Zoxide
 export _ZO_DATA_DIR=~/.zoxide
@@ -62,6 +63,11 @@ alias dockerSoftRemove='docker container prune -f'
 # Bat
 alias bat='batcat'
 
+# Tmux
+alias tmuxn='tmux new -s' 
+alias tmuxa='tmux a -t' 
+alias tmuxd='tmux detach'
+
 # Source private local configuration if it exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
@@ -70,5 +76,3 @@ alias bat='batcat'
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
