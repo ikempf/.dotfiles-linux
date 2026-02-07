@@ -16,6 +16,12 @@ choco install microsoft-windows-terminal
 choco install jetbrainstoolbox
 ```
 
+## Terminal
+```
+Install alacritty
+Install tmux
+```
+
 ## DEV tooling
 ```
 apt install bat
@@ -40,6 +46,7 @@ Install Oh-my-zsh
 ## LazyVim
 ```
 Install NerdFont
+Install neovim
 apt install vim
 apt install fzf
 apt install ripgrep
