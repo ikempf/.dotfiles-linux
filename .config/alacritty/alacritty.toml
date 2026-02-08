@@ -13,7 +13,7 @@ import = ["C://Users/<user>/AppData/Roaming/alacritty/catppuccin-frappe.toml"]
 
 [window]
 padding.x = 10
-padding.y = 10
+padding.y = 5
 decorations = "None"
 opacity = 1
 blur = true
@@ -29,3 +29,9 @@ blink_timeout = 255
 [cursor.style]
 shape = "Block"
 blinking = "Always"
+
+
+[keyboard]
+bindings = [
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
+]
