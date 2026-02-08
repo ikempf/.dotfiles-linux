@@ -67,6 +67,15 @@ alias bat='batcat'
 alias tmuxn='tmux new -s' 
 alias tmuxa='tmux a -t' 
 alias tmuxd='tmux detach'
+tx() {
+  if tmux has-session 2>/dev/null; then
+
+    tmux attach \; choose-tree -s
+  else
+    tmux new
+  fi
+}
+
 
 # Source private local configuration if it exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
