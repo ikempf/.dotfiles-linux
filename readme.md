@@ -19,6 +19,7 @@ choco install jetbrainstoolbox
 ## Terminal
 ```
 Install alacritty
+Install tpm
 Install tmux
 ```
 
