@@ -1,0 +1,7 @@
+[tools]
+java = "latest"
+maven = "latest"
+npm = "latest"
+python = "latest"
+scala = "latest"
+usage = "latest"  # Required for mise shell completions to work properly
