@@ -57,12 +57,10 @@ Install tree-sitter-cli
 Install LazyVim
 ```
 
-## SDK man
+## Mise en place
 ```
-Install sdkman
-sdk install maven
-sdk install java
-sdk install springboot
+Install mise
+mise doctor
 ```
 
 ## Git config
