@@ -1,18 +1,23 @@
-# Needs to be moved to %APPDATA%\alacritty\alacritty.toml
-
-[terminal.shell]
-program = 'C://Windows/system32/wsl'
-args = ["--cd ~"]
+# ======== WSL only ============
+#  Needs to be moved to %APPDATA%\alacritty\alacritty.toml
+#[terminal.shell]
+#program = 'C://Windows/system32/wsl'
+#args = ["--cd ~"]
 #program = 'Ubuntu' # Update for other distribs
+
+#[general]
+#import = ["C://Users/<user>/AppData/Roaming/alacritty/catppuccin-frappe.toml"]
+# ======== WSL only ============
+# ======== Linux only ============
+[general]
+import = ["~/.config/alacritty/catppuccin-frappe.toml"]
+# ======== Linux only ============
 
 [env]
 TERM = "xterm-256color"
 
-[general]
-import = ["C://Users/<user>/AppData/Roaming/alacritty/catppuccin-frappe.toml"]
-
 [window]
-padding.x = 10
+padding.x = 5
 padding.y = 5
 decorations = "None"
 opacity = 1

@@ -1,20 +1,14 @@
-# Windows setup
+# Linux setup
 
-## Chocolatey
-Install chocolatey:
-https://chocolatey.org/install#individual
 
-## Install WSL
+## Checkout this repository
 ```
-wsl --install
-wsl --install -d Debian
+git init .
+git remote add origin git@github.com:ikempf/.dotfiles-linux.git
+git pull origin master
+git branch --set-upstream-to=origin/master master
 ```
 
-## Windows tooling
-```
-choco install microsoft-windows-terminal
-choco install jetbrainstoolbox
-```
 
 ## Terminal
 ```
@@ -23,7 +17,7 @@ Install tpm
 Install tmux
 ```
 
-## DEV tooling
+## CLI tooling
 ```
 apt install bat
 apt install git
@@ -33,9 +27,15 @@ apt install zip
 apt install unzip
 apt install telnet
 apt install zoxide
+apt install eze
 apt install silversearcher-ag
 apt install mitmproxy
 npm install -g @mermaid-js/mermaid-cli
+```
+
+## Dev tooling
+```
+Install jetbrainstoolbox
 ```
 
 ## OhMyZsh
@@ -77,17 +77,10 @@ git config --global user.name <>
 Install claude code
 Install codex
 Install opencode
-Install ai-shell
+Install mistral vibe
 ```
 
-## Theme
+# WSL
+## Theme 
 Windows terminal: .config/windows-terminal/settings.json
 
-
-## Checkout this repository
-```
-git init .
-git remote add origin git@github.com:ikempf/.dotfiles-win.git
-git pull origin master
-git branch --set-upstream-to=origin/master master
-```
