@@ -1,33 +1,22 @@
+# Oh-My-Zsh
+ZSH_THEME="agnoster"
+DEFAULT_USER="ilja"
+plugins=(git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
-# ZSH plugins
-export ZPLUG_HOME=~/.zplug
-if [[ ! -d $ZPLUG_HOME ]]; then
-  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+# Zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ ! -d $ZINIT_HOME ]]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-source $ZPLUG_HOME/init.zsh
+source "${ZINIT_HOME}/zinit.zsh"
 
-## ZPlug init
-source ~/.zplug/init.zsh
-
-## ZSH Plugins
-zplug "plugins/git", from:oh-my-zsh
-zplug "Aloxaf/fzf-tab"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zdharma-continuum/fast-syntax-highlighting"
-zplug "MichaelAquilina/zsh-you-should-use" 
- 
-## Theme
-zplug "agnoster/agnoster-zsh-theme", as:theme
-DEFAULT_USER="ilja"
-
-## Install plugins if not installed
-if ! zplug check; then
-  zplug install
-fi
-
-## Load plugins
-zplug load
+zinit wait lucid light-mode for \
+  Aloxaf/fzf-tab \
+  zsh-users/zsh-autosuggestions \
+  zdharma-continuum/fast-syntax-highlighting \
+  MichaelAquilina/zsh-you-should-use
 
 # Add binaries
 export PATH="$HOME/.local/bin:$PATH"
@@ -62,12 +51,11 @@ alias dockerSoftRemove='docker container prune -f'
 alias bat='batcat'
 
 # Tmux
-alias tmuxn='tmux new -s' 
-alias tmuxa='tmux a -t' 
+alias tmuxn='tmux new -s'
+alias tmuxa='tmux a -t'
 alias tmuxd='tmux detach'
 tx() {
   if tmux has-session 2>/dev/null; then
-
     tmux attach \; choose-tree -s
   else
     tmux new
@@ -79,4 +67,3 @@ eval "$(mise activate zsh)"
 
 # Source private local configuration if it exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
