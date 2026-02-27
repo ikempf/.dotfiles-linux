@@ -5,8 +5,11 @@
 ```
 git init .
 git remote add origin git@github.com:ikempf/.dotfiles-linux.git
+ssh-keygen -t ed25519 -C "<email>"
 git pull origin master
 git branch --set-upstream-to=origin/master master
+git config --global user.email <>
+git config --global user.name <>
 ```
 
 
@@ -29,8 +32,6 @@ apt install telnet
 apt install zoxide
 apt install eze
 apt install silversearcher-ag
-apt install mitmproxy
-npm install -g @mermaid-js/mermaid-cli
 ```
 
 ## Dev tooling
@@ -61,15 +62,6 @@ Install LazyVim
 ```
 Install mise
 mise doctor
-```
-
-## Git config
-Create a new github/github.pub ssh key.
-Configure ssh/config to use the key for github.com
-
-```
-git config --global user.email <>
-git config --global user.name <>
 ```
 
 ## AI tools

@@ -1,7 +1,11 @@
+[settings]
+jobs = 1
+
 [tools]
 java = "latest"
 maven = "latest"
-npm = "latest"
+node = "latest"
 python = "latest"
 scala = "latest"
-usage = "latest"  # Required for mise shell completions to work properly
+usage = "latest" # Required for mise shell completions to work properly
+
