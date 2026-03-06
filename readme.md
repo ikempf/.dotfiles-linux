@@ -1,6 +1,5 @@
 # Linux setup
 
-
 ## Checkout this repository
 ```
 git init .
@@ -11,7 +10,6 @@ git branch --set-upstream-to=origin/master master
 git config --global user.email <>
 git config --global user.name <>
 ```
-
 
 ## Terminal
 ```
@@ -32,11 +30,13 @@ apt install telnet
 apt install zoxide
 apt install eze
 apt install silversearcher-ag
+brew install nushell
 ```
 
 ## Dev tooling
 ```
 Install jetbrainstoolbox
+Install homebrew
 ```
 
 ## OhMyZsh
