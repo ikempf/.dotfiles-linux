@@ -40,3 +40,6 @@ blinking = "Always"
 bindings = [
   { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
 ]
+
+[selection]
+save_to_clipboard = true
