@@ -25,8 +25,19 @@ export PATH="$PATH:/snap/bin"
 export PATH=$HOME/.opencode/bin:$PATH
 
 # Zoxide
-export _ZO_DATA_DIR=~/.zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# Mise
+eval "$(mise activate zsh)"
+
+# Brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+
+# Atuin
+eval "$(atuin init zsh --disable-up-arrow)"
+
+# Tirith
+eval "$(tirith init --shell zsh)"
 
 # Override prompt_git for agnoster theme to ignore home directory git repo
 functions[_original_prompt_git]=$functions[prompt_git]
@@ -62,8 +73,6 @@ tx() {
   fi
 }
 
-# Mise
-eval "$(mise activate zsh)"
-
 # Source private local configuration if it exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
