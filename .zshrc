@@ -61,6 +61,12 @@ alias dockerSoftRemove='docker container prune -f'
 # Bat
 alias bat='batcat'
 
+# Eza
+if command -v eza &> /dev/null; then
+  alias ls='eza --icons --group-directories-first --grid'
+  alias lst='eza --icons --group-directories-first --grid --tree'
+fi
+
 # Tmux
 alias tmuxn='tmux new -s'
 alias tmuxa='tmux a -t'
@@ -72,6 +78,9 @@ tx() {
     tmux new
   fi
 }
+
+# LS Colors (generated with: vivid generate catppuccin-frappe)
+[[ -f ~/.zshrc.ls_colors ]] && source ~/.zshrc.ls_colors
 
 # Source private local configuration if it exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
