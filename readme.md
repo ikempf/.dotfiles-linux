@@ -18,25 +18,30 @@ Install tpm
 Install tmux
 ```
 
-## CLI tooling
-```
-apt install bat
-apt install git
-apt install lazygit
-apt install curl
-apt install zip
-apt install unzip
-apt install telnet
-apt install zoxide
-apt install eze
-apt install silversearcher-ag
-brew install nushell
-```
-
 ## Dev tooling
 ```
 Install jetbrainstoolbox
 Install homebrew
+```
+
+## CLI tooling
+```
+apt install bat
+apt install git
+apt install curl
+apt install zip
+apt install unzip
+apt install telnet
+apt install silversearcher-ag
+apt install lazygit
+apt install zoxide
+brew install nushell
+brew install gromgit/brewtils/taproom
+brew install ranger
+brew install btop
+brew install chafa
+brew install csvlens
+brew install eza
 ```
 
 ## OhMyZsh
