@@ -68,9 +68,7 @@ if command -v eza &> /dev/null; then
 fi
 
 # Tmux
-alias tmuxn='tmux new -s'
-alias tmuxa='tmux a -t'
-alias tmuxd='tmux detach'
+alias txd='tmux detach'
 tx() {
   if tmux has-session 2>/dev/null; then
     tmux attach \; choose-tree -s
