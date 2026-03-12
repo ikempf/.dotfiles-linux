@@ -33,8 +33,8 @@ apt install zip
 apt install unzip
 apt install telnet
 apt install silversearcher-ag
-apt install lazygit
 apt install zoxide
+brew install cpulimit
 brew install nushell
 brew install gromgit/brewtils/taproom
 brew install ranger
@@ -42,6 +42,9 @@ brew install btop
 brew install chafa
 brew install csvlens
 brew install eza
+brew install lazygit
+brew install lazydocker
+
 ```
 
 ## OhMyZsh
