@@ -37,7 +37,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
 # Tirith
-eval "$(tirith init --shell zsh)"
+#eval "$(tirith init --shell zsh)"
 
 # Override prompt_git for agnoster theme to ignore home directory git repo
 functions[_original_prompt_git]=$functions[prompt_git]
