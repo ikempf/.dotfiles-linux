@@ -22,6 +22,8 @@ Install tmux
 ```
 Install jetbrainstoolbox
 Install homebrew
+brew install mise
+mise doctor
 ```
 
 ## CLI tooling
@@ -66,18 +68,12 @@ Install tree-sitter-cli
 Install LazyVim
 ```
 
-## Mise en place
-```
-Install mise
-mise doctor
-```
-
 ## AI tools
 ```
-Install claude code
-Install codex
-Install opencode
-Install mistral vibe
+brew install claude-code
+brew install codex
+brew install mistral-vibe
+brew install opencode
 ```
 
 # WSL
