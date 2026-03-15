@@ -20,24 +20,25 @@ zinit wait lucid light-mode for \
 
 # Add binaries
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/opt/nvim/"
-export PATH="$PATH:/snap/bin"
-export PATH=$HOME/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
+export PATH="/opt/nvim:$PATH"
+export PATH="/snap/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # Zoxide
-eval "$(zoxide init --cmd cd zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
 
 # Mise
-eval "$(mise activate zsh)"
+command -v mise &>/dev/null && eval "$(mise activate zsh)"
 
 # Brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+command -v brew &>/dev/null && eval "$(brew shellenv zsh)"
 
 # Atuin
-eval "$(atuin init zsh --disable-up-arrow)"
+command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
 
 # Tirith
-#eval "$(tirith init --shell zsh)"
+#command -v tirith &>/dev/null && eval "$(tirith init --shell zsh)"
 
 # Override prompt_git for agnoster theme to ignore home directory git repo
 functions[_original_prompt_git]=$functions[prompt_git]
