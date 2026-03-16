@@ -65,7 +65,8 @@ alias bat='batcat'
 # Eza
 if command -v eza &> /dev/null; then
   alias ls='eza --icons --group-directories-first --grid'
-  alias lst='eza --icons --group-directories-first --grid --tree'
+  alias la='eza --icons --group-directories-first -lhA'
+  alias lst='eza --icons --group-directories-first --tree'
 fi
 
 # Tmux
