@@ -28,14 +28,14 @@ mise doctor
 
 ## CLI tooling
 ```
-apt install bat
 apt install git
 apt install curl
-apt install zip
-apt install unzip
 apt install telnet
-apt install silversearcher-ag
-apt install zoxide
+brew install bat
+brew install zip
+brew install unzip
+brew install ag
+brew install zoxide
 brew install cpulimit
 brew install nushell
 brew install gromgit/brewtils/taproom
