@@ -1,0 +1,14 @@
+local-sync() {
+  echo "==> Syncing apt packages..."
+  local apt_packages=(git curl telnet build-essential zsh)
+  for pkg in "${apt_packages[@]}"; do
+    if ! dpkg -s "$pkg" &>/dev/null; then
+      sudo apt install -y "$pkg"
+    fi
+  done
+
+  echo "==> Syncing brew packages..."
+  brew bundle install --file="$HOME/.dotfiles/Brewfile" --no-upgrade
+
+  echo "==> Done."
+}
