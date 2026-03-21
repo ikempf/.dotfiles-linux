@@ -1,0 +1,35 @@
+tap "gromgit/brewtils"
+
+# Dev tooling
+brew "mise"
+brew "neovim"
+brew "vim"
+
+# Terminal
+brew "tmux"
+
+# CLI tools
+brew "fzf"
+brew "ripgrep"
+brew "fd"
+brew "bat"
+brew "zip"
+brew "unzip"
+brew "ag"
+brew "zoxide"
+brew "cpulimit"
+brew "nushell"
+brew "ranger"
+brew "btop"
+brew "chafa"
+brew "csvlens"
+brew "eza"
+brew "lazygit"
+brew "lazydocker"
+brew "taproom"
+
+# AI tools
+cask "claude-code"
+cask "codex"
+brew "mistral-vibe"
+brew "opencode"
