@@ -1,0 +1,33 @@
+# Tmux
+tx() {
+  if tmux has-session 2>/dev/null; then
+    tmux attach \; choose-tree -s
+  else
+    tmux new
+  fi
+}
+
+# AI shell command generator
+# Usage: ai <natural language description>
+# Example: ai find files named foo
+ai() {
+  local query="$*"
+  if [[ -z "$query" ]]; then
+    echo "Usage: ai <natural language query>"
+    return 1
+  fi
+  local prompt="You are a shell command generator for Linux/zsh.
+Output ONLY the raw shell command that accomplishes the task below.
+Rules:
+- No explanation, no commentary, no alternatives
+- No markdown, no code blocks, no backticks
+- No leading/trailing whitespace or newlines
+- The output must be directly executable in a zsh shell on Linux
+- If multiple commands are needed, chain them with && or | on a single line
+
+Task: $query"
+
+  local cmd
+  cmd=$(vibe --output text -p "$prompt" --max-turns 1 2>/dev/null | tr -d '\n')
+  print -z "$cmd"
+}
