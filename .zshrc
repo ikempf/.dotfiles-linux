@@ -64,6 +64,8 @@ if command -v eza &> /dev/null; then
   alias la='eza --icons --group-directories-first -lhA'
   alias lst='eza --icons --group-directories-first --tree'
 fi
+## Other
+alias c='clear'
 
 # LS Colors (generated with: vivid generate catppuccin-frappe)
 [[ -f ~/.dotfiles/.zshrc.ls_colors ]] && source ~/.dotfiles/.zshrc.ls_colors
