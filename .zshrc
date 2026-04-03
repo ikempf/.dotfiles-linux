@@ -63,6 +63,7 @@ if command -v eza &> /dev/null; then
   alias ls='eza --icons --group-directories-first --grid'
   alias la='eza --icons --group-directories-first -lhA'
   alias lst='eza --icons --group-directories-first --tree'
+  alias lat='eza --icons --group-directories-first --tree -lhA'
 fi
 ## Other
 alias c='clear'
