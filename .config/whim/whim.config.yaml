@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=C:\Users\iljak\AppData\Local\Programs\Whim\plugins\Whim.Yaml\schema.json
+# yaml-language-server: $schema=C:\Users\<user>\AppData\Local\Programs\Whim\plugins\Whim.Yaml\schema.json
 styles:
   user_dictionaries:
     - resources/catppuccin-frappe.xaml
