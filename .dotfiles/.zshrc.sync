@@ -12,10 +12,24 @@ local-sync() {
 
   if grep -qi microsoft /proc/version 2>/dev/null; then
     if [[ -z "$DEFAULT_USER" ]]; then
-      echo "==> Skipping Whim config sync: DEFAULT_USER is not set"
+      echo "==> Skipping WSL config sync: DEFAULT_USER is not set"
     else
       echo "==> Syncing Whim config (WSL)..."
-      cp -r "$HOME/.dotfiles/windows/whim/." /mnt/c/Users/$DEFAULT_USER/.whim/
+      local whim_dest="/mnt/c/Users/$DEFAULT_USER/.whim"
+      mkdir -p "$whim_dest"
+      sed "s|<user>|$DEFAULT_USER|g" "$HOME/.config/whim/whim.config.yaml" > "$whim_dest/whim.config.yaml"
+      cp -r "$HOME/.config/whim/resources/." "$whim_dest/resources/"
+
+      echo "==> Syncing Alacritty config (WSL)..."
+      local alacritty_dest="/mnt/c/Users/$DEFAULT_USER/AppData/Roaming/alacritty"
+      mkdir -p "$alacritty_dest"
+      sed \
+        -e '/# @BEGIN_WSL/,/# @END_WSL/{ /# @BEGIN_WSL\|# @END_WSL/d; s/^#//; }' \
+        -e '/# @BEGIN_LIN/,/# @END_LIN/d' \
+        -e "s|<user>|$DEFAULT_USER|g" \
+        "$HOME/.dotfiles/.config/alacritty/alacritty.toml" \
+        > "$alacritty_dest/alacritty.toml"
+      cp "$HOME/.dotfiles/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
     fi
   fi
 

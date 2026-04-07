@@ -3,8 +3,6 @@
 #[terminal.shell]
 #program = 'C://Windows/system32/wsl'
 #args = ["--cd ~"]
-#program = 'Ubuntu' # Update for other distribs
-
 #[general]
 #import = ["C://Users/<user>/AppData/Roaming/alacritty/catppuccin-frappe.toml"]
 # ======== WSL only ============
