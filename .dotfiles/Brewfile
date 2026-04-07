@@ -16,17 +16,20 @@ brew "bat"
 brew "zip"
 brew "unzip"
 brew "ag"
+
 brew "zoxide"
-brew "cpulimit"
-brew "nushell"
-brew "ranger"
-brew "btop"
-brew "chafa"
-brew "csvlens"
 brew "eza"
-brew "lazygit"
-brew "lazydocker"
+brew "ranger"
 brew "taproom"
+brew "lazydocker"
+brew "lazygit"
+
+brew "cpulimit"
+brew "btop"
+
+brew "nushell"
+brew "csvlens"
+brew "chafa"
 
 # AI tools
 cask "claude-code"
