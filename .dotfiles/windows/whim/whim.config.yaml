@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=C:\Users\iljak\AppData\Local\Programs\Whim\plugins\Whim.Yaml\schema.json
+styles:
+  user_dictionaries:
+    - resources/catppuccin-frappe.xaml
+  backdrop:
+    type: none
+
+workspaces:
+  entries:
+    - name: Workspace 1
+    - name: Workspace 2
+    - name: Workspace 3
+    - name: Workspace 4
+
+layout_engines:
+  entries:
+    - type: tree
+      initial_direction: right
+
+    - type: slice
+      variant:
+        type: row
+
+    - type: slice
+      variant:
+        type: column
+
+    - type: slice
+      variant:
+        type: primary_stack
+
+    - type: slice
+      variant:
+        type: secondary_primary_stack
+
+    - type: slice
+      variant:
+        type: multi_column_stack
+        columns: [2, 1, 0]
+
+    - type: slice
+      variant:
+        type: secondary_primary_stack
+        primary_capacity: 1
+        secondary_capacity: 2
+
+    - type: focus
+      maximize: false
+
+    - type: floating
+
+keybinds:
+  entries:
+    # Monitor focus
+    - command: whim.core.focus_next_monitor
+      keybind: LCtrl+LWin+LAlt+L
+
+    - command: whim.core.focus_previous_monitor
+      keybind: LCtrl+LWin+LAlt+H
+
+    # Move windows 
+    - command: whim.core.move_window_to_previous_monitor
+      keybind: LCtrl+LWin+LAlt+U
+
+    - command: whim.core.move_window_to_next_monitor
+      keybind: LCtrl+LWin+LAlt+P
+
+    # Window focus 
+    - command: whim.core.focus_window_in_direction.left
+      keybind: LCtrl+LAlt+H
+
+    - command: whim.core.focus_window_in_direction.right
+      keybind: LCtrl+LAlt+L
+
+    - command: whim.core.focus_window_in_direction.up
+      keybind: LCtrl+LAlt+K
+
+    - command: whim.core.focus_window_in_direction.down
+      keybind: LCtrl+LAlt+J
+
+    # Other 
+    - command: whim.core.restart_whim
+      keybind: LCtrl+LWin+LAlt+R
+
+    - command: whim.command_palette.toggle
+      keybind: LCtrl+LWin+LAlt+C
+
+  unify_key_modifiers: false
+
+filters:
+  entries: []
+
+routers:
+  routing_behavior: route_to_launched_workspace
+
+plugins:
+  bar:
+    left_components:
+      entries:
+        - type: workspace_widget
+
+    center_components:
+      entries:
+        - type: focused_window_widget
+          shorten_title: true
+
+    right_components:
+      entries:
+        - type: battery_widget
+        - type: active_layout_widget
+        - type: date_time_widget
+          format: HH:mm:ss, dd MMM yyyy
+        #- type: tree_layout_widget
+
+  floating_window:
+    is_enabled: true
+
+  gaps:
+    is_enabled: true
+    outer_gap: 0
+    inner_gap: 0
+    default_outer_delta: 0
+    default_inner_delta: 0
+
+  command_palette:
+    is_enabled: true
+    max_height_percent: 40
+    max_width_pixels: 800
+    y_position_percent: 20
+
+  focus_indicator:
+    is_enabled: true
+    border_size: 2
+    is_fade_enabled: true
+    fade_timeout: 2
+    color: red
+
+  layout_preview:
+    is_enabled: true
+
+  updater:
+    is_enabled: true
+    release_channel: alpha
+    update_frequency: monthly

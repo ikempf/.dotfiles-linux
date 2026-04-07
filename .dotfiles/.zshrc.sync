@@ -10,5 +10,14 @@ local-sync() {
   echo "==> Syncing brew packages..."
   brew bundle install --file="$HOME/.dotfiles/Brewfile" --no-upgrade
 
+  if grep -qi microsoft /proc/version 2>/dev/null; then
+    if [[ -z "$DEFAULT_USER" ]]; then
+      echo "==> Skipping Whim config sync: DEFAULT_USER is not set"
+    else
+      echo "==> Syncing Whim config (WSL)..."
+      cp -r "$HOME/.dotfiles/windows/whim/." /mnt/c/Users/$DEFAULT_USER/.whim/
+    fi
+  fi
+
   echo "==> Done."
 }

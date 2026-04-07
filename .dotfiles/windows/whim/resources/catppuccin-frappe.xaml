@@ -1,0 +1,98 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Catppuccin Frappé -->
+    <!-- Base:      #303446  Mantle:   #292c3c  Crust:    #232634 -->
+    <!-- Surface 0: #414559  Surface 1:#51576d  Surface 2:#626880 -->
+    <!-- Text:      #c6d0f5  Subtext1: #b5bfe2  Mauve:    #ca9ee6  Lavender: #babbf1 -->
+
+    <!-- Active workspace and hover colors (must be Color type, not SolidColorBrush) -->
+    <Color x:Key="bar:active_workspace:background">#ffbabbf1</Color>
+    <Color x:Key="bar:active_workspace:foreground">#ff292c3c</Color>
+    <Color x:Key="bar:hover:background">#ff414559</Color>
+    <Color x:Key="bar:hover:foreground">#ffc6d0f5</Color>
+
+    <!-- Override WinUI button theme brushes to force dark-on-dark coloring -->
+    <SolidColorBrush x:Key="ButtonForeground" Color="#ffc6d0f5" />
+    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="#ffc6d0f5" />
+    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="#ffb5bfe2" />
+    <SolidColorBrush x:Key="ButtonBackground" Color="#00000000" />
+    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#ff414559" />
+    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#ff51576d" />
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#00000000" />
+    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="#00000000" />
+    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="#00000000" />
+
+
+    <Style x:Key="bar:height" TargetType="RelativePanel">
+        <Setter Property="Height" Value="28" />
+    </Style>
+
+    <Style x:Key="bar:root_panel" TargetType="RelativePanel">
+        <Setter Property="Background" Value="#ff292c3c" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style x:Key="bar:left_panel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="bar:center_panel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="bar:right_panel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="bar:focused_window:text_block" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#ffc6d0f5" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="bar:date_time:text_block" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#ffb5bfe2" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="bar:active_layout:button" TargetType="Button">
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="Foreground" Value="#ffc6d0f5" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="bar:tree_layout:button" TargetType="Button">
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="Foreground" Value="#ffc6d0f5" />
+        <Setter Property="Padding" Value="8,0,8,0" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="bar:workspace:button" TargetType="Button">
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="Foreground" Value="#ffb5bfe2" />
+        <Setter Property="Padding" Value="8,0,8,0" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="bar:battery:text_block" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#ffb5bfe2" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="bar:battery:font_icon" TargetType="FontIcon">
+        <Setter Property="Foreground" Value="#ffb5bfe2" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+</ResourceDictionary>
