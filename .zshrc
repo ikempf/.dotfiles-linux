@@ -1,6 +1,5 @@
 # Oh-My-Zsh
 ZSH_THEME="agnoster"
-DEFAULT_USER="ilja"
 plugins=(git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # Override prompt_git for agnoster theme to ignore home directory git repo
@@ -68,13 +67,14 @@ fi
 ## Other
 alias c='clear'
 
+# Local private configuration
+[[ -f ~/.dotfiles/.zshrc.local ]] && source ~/.dotfiles/.zshrc.local
+[[ -z "$DEFAULT_USER" ]] && echo "warning: DEFAULT_USER is not set (define it in ~/.dotfiles/.zshrc.local)"
+
 # LS Colors (generated with: vivid generate catppuccin-frappe)
 [[ -f ~/.dotfiles/.zshrc.ls_colors ]] && source ~/.dotfiles/.zshrc.ls_colors
 
 # Functions
 [[ -f ~/.dotfiles/.zshrc.functions ]] && source ~/.dotfiles/.zshrc.functions
 [[ -f ~/.dotfiles/.zshrc.sync ]] && source ~/.dotfiles/.zshrc.sync
-
-# Source private local configuration if it exists
-[[ -f ~/.dotfiles/.zshrc.local ]] && source ~/.dotfiles/.zshrc.local
 

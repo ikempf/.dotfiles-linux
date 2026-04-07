@@ -27,7 +27,6 @@ brew "lazygit"
 brew "cpulimit"
 brew "btop"
 
-brew "nushell"
 brew "csvlens"
 brew "chafa"
 
@@ -36,3 +35,4 @@ cask "claude-code"
 cask "codex"
 brew "mistral-vibe"
 brew "opencode"
+
