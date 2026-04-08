@@ -1,15 +1,14 @@
-# ======== WSL only ============
-#  Needs to be moved to %APPDATA%\alacritty\alacritty.toml
+# @BEGIN_WSL
 #[terminal.shell]
 #program = 'C://Windows/system32/wsl'
 #args = ["--cd ~"]
 #[general]
 #import = ["C://Users/<user>/AppData/Roaming/alacritty/catppuccin-frappe.toml"]
-# ======== WSL only ============
-# ======== Linux only ============
+# @END_WSL
+# @BEGIN_LIN
 [general]
 import = ["~/.config/alacritty/catppuccin-frappe.toml"]
-# ======== Linux only ============
+# @END_LIN
 
 [env]
 #TERM = "alacritty"
