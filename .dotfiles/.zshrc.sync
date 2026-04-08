@@ -11,27 +11,41 @@ local-sync() {
   brew bundle install --file="$HOME/.dotfiles/Brewfile" --no-upgrade
 
   if grep -qi microsoft /proc/version 2>/dev/null; then
-    if [[ -z "$DEFAULT_USER" ]]; then
-      echo "==> Skipping WSL config sync: DEFAULT_USER is not set"
+    [[ -z "$DEFAULT_WIN_USER" ]] && echo "==> Warning: DEFAULT_WIN_USER is not set"
+    [[ -z "$DEFAULT_WIN_USER_FOLDER" ]] && echo "==> Warning: DEFAULT_WIN_USER_FOLDER is not set"
+    if [[ -z "$DEFAULT_WIN_USER" || -z "$DEFAULT_WIN_USER_FOLDER" ]]; then
+      echo "==> Skipping WSL config sync"
     else
       echo "==> Syncing Whim config (WSL)..."
-      local whim_dest="/mnt/c/Users/$DEFAULT_USER/.whim"
+      local whim_dest="$DEFAULT_WIN_USER_FOLDER/.whim"
       mkdir -p "$whim_dest"
-      sed "s|<user>|$DEFAULT_USER|g" "$HOME/.config/whim/whim.config.yaml" > "$whim_dest/whim.config.yaml"
+      sed "s|<user>|$DEFAULT_WIN_USER|g" "$HOME/.config/whim/whim.config.yaml" > "$whim_dest/whim.config.yaml"
+      mkdir -p "$whim_dest/resources"
       cp -r "$HOME/.config/whim/resources/." "$whim_dest/resources/"
 
       echo "==> Syncing Alacritty config (WSL)..."
-      local alacritty_dest="/mnt/c/Users/$DEFAULT_USER/AppData/Roaming/alacritty"
+      local alacritty_dest="$DEFAULT_WIN_USER_FOLDER/AppData/Roaming/alacritty"
       mkdir -p "$alacritty_dest"
       sed \
         -e '/# @BEGIN_WSL/,/# @END_WSL/{ /# @BEGIN_WSL\|# @END_WSL/d; s/^#//; }' \
         -e '/# @BEGIN_LIN/,/# @END_LIN/d' \
-        -e "s|<user>|$DEFAULT_USER|g" \
-        "$HOME/.dotfiles/.config/alacritty/alacritty.toml" \
+        -e "s|<user>|$DEFAULT_WIN_USER|g" \
+        "$HOME/.config/alacritty/alacritty.toml" \
         > "$alacritty_dest/alacritty.toml"
-      cp "$HOME/.dotfiles/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
+      cp "$HOME/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
     fi
   fi
 
   echo "==> Done."
+  git -C "$HOME/.dotfiles" rev-parse HEAD > "$HOME/.dotfiles/last-local-sync"
 }
+
+# Auto-prompt on shell startup if dotfiles have changed
+_dotfiles_current_hash=$(git -C "$HOME/.dotfiles" rev-parse HEAD 2>/dev/null)
+_dotfiles_last_hash=$(cat "$HOME/.dotfiles/last-local-sync" 2>/dev/null)
+if [[ -n "$_dotfiles_current_hash" && "$_dotfiles_current_hash" != "$_dotfiles_last_hash" ]]; then
+  echo "==> Dotfiles have changed since last sync. Run local-sync? [y/N] "
+  read -r _dotfiles_reply
+  [[ "$_dotfiles_reply" =~ ^[Yy]$ ]] && local-sync
+fi
+unset _dotfiles_current_hash _dotfiles_last_hash _dotfiles_reply
