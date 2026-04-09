@@ -44,9 +44,3 @@ Install tree-sitter-cli
 Install LazyVim
 ```
 
-# WSL
-## Theme 
-Windows terminal: .config/windows-terminal/settings.json
-## Alacritty
-Update config and config path
-
