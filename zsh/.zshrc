@@ -2,17 +2,6 @@
 ZSH_THEME="agnoster"
 plugins=(git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
-# Override prompt_git for agnoster theme to ignore home directory git repo
-functions[_original_prompt_git]=$functions[prompt_git]
-function prompt_git() {
-  local git_toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
-
-  if [[ "$git_toplevel" == "$HOME" ]]; then
-    return
-  fi
-
-  _original_prompt_git
-}
 
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
