@@ -36,4 +36,4 @@ cask "claude-code"
 cask "codex"
 brew "mistral-vibe"
 brew "opencode"
-
+brew "rtk"
