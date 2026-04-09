@@ -5,5 +5,18 @@
   "statusLine": {
     "type": "command",
     "command": "bash /home/iljak/.claude/statusline-command.sh"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/iljak/.claude/hooks/rtk-rewrite.sh"
+          }
+        ]
+      }
+    ]
   }
 }

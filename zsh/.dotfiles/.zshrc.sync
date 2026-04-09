@@ -1,4 +1,4 @@
-local-sync() {
+_sync-apt() {
   echo "==> Syncing apt packages..."
   local apt_packages=(git curl telnet build-essential zsh)
   for pkg in "${apt_packages[@]}"; do
@@ -6,34 +6,53 @@ local-sync() {
       sudo apt install -y "$pkg"
     fi
   done
+}
 
+_sync-brew() {
   echo "==> Syncing brew packages..."
   brew bundle install --file="$HOME/dotfiles/brew/.dotfiles/Brewfile" --no-upgrade
+}
+
+_sync-wsl-config() {
+  [[ -z "$DEFAULT_WIN_USER" ]] && echo "==> Warning: DEFAULT_WIN_USER is not set"
+  [[ -z "$DEFAULT_WIN_USER_FOLDER" ]] && echo "==> Warning: DEFAULT_WIN_USER_FOLDER is not set"
+  if [[ -z "$DEFAULT_WIN_USER" || -z "$DEFAULT_WIN_USER_FOLDER" ]]; then
+    echo "==> Skipping WSL config sync"
+    return
+  fi
+
+  echo "==> Syncing Whim config (WSL)..."
+  local whim_dest="$DEFAULT_WIN_USER_FOLDER/.whim"
+  mkdir -p "$whim_dest"
+  sed "s|<user>|$DEFAULT_WIN_USER|g" "$HOME/.config/whim/whim.config.yaml" > "$whim_dest/whim.config.yaml"
+  mkdir -p "$whim_dest/resources"
+  cp -r "$HOME/.config/whim/resources/." "$whim_dest/resources/"
+
+  echo "==> Syncing Alacritty config (WSL)..."
+  local alacritty_dest="$DEFAULT_WIN_USER_FOLDER/AppData/Roaming/alacritty"
+  mkdir -p "$alacritty_dest"
+  sed \
+    -e '/# @BEGIN_WSL/,/# @END_WSL/{ /# @BEGIN_WSL\|# @END_WSL/d; s/^#//; }' \
+    -e '/# @BEGIN_LIN/,/# @END_LIN/d' \
+    -e "s|<user>|$DEFAULT_WIN_USER|g" \
+    "$HOME/.config/alacritty/alacritty.toml" \
+    > "$alacritty_dest/alacritty.toml"
+  cp "$HOME/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
+}
+
+_configure-tools() {
+  echo "==> Configuring tools..."
+  rtk init -g
+  rtk init -g --codex
+}
+
+local-sync() {
+  _sync-apt
+  _sync-brew
+  _configure-tools
 
   if grep -qi microsoft /proc/version 2>/dev/null; then
-    [[ -z "$DEFAULT_WIN_USER" ]] && echo "==> Warning: DEFAULT_WIN_USER is not set"
-    [[ -z "$DEFAULT_WIN_USER_FOLDER" ]] && echo "==> Warning: DEFAULT_WIN_USER_FOLDER is not set"
-    if [[ -z "$DEFAULT_WIN_USER" || -z "$DEFAULT_WIN_USER_FOLDER" ]]; then
-      echo "==> Skipping WSL config sync"
-    else
-      echo "==> Syncing Whim config (WSL)..."
-      local whim_dest="$DEFAULT_WIN_USER_FOLDER/.whim"
-      mkdir -p "$whim_dest"
-      sed "s|<user>|$DEFAULT_WIN_USER|g" "$HOME/.config/whim/whim.config.yaml" > "$whim_dest/whim.config.yaml"
-      mkdir -p "$whim_dest/resources"
-      cp -r "$HOME/.config/whim/resources/." "$whim_dest/resources/"
-
-      echo "==> Syncing Alacritty config (WSL)..."
-      local alacritty_dest="$DEFAULT_WIN_USER_FOLDER/AppData/Roaming/alacritty"
-      mkdir -p "$alacritty_dest"
-      sed \
-        -e '/# @BEGIN_WSL/,/# @END_WSL/{ /# @BEGIN_WSL\|# @END_WSL/d; s/^#//; }' \
-        -e '/# @BEGIN_LIN/,/# @END_LIN/d' \
-        -e "s|<user>|$DEFAULT_WIN_USER|g" \
-        "$HOME/.config/alacritty/alacritty.toml" \
-        > "$alacritty_dest/alacritty.toml"
-      cp "$HOME/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
-    fi
+    _sync-wsl-config
   fi
 
   echo "==> Done."
