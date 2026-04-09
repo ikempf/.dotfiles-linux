@@ -13,19 +13,7 @@ git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
 # Install stow first
 brew install stow
 cd ~/dotfiles
-
-# Core packages (all machines)
-stow zsh atuin mise nvim tmux
-
-# WSL/Windows-only
-stow alacritty whim windows-terminal wsl
-
-# macOS/Linux with Homebrew
-stow brew
-
-# Remove a package
-stow -D nvim
-```
+stow */ 
 
 ## Dev tooling
 ```

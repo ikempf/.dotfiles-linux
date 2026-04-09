@@ -16,6 +16,7 @@ brew "bat"
 brew "zip"
 brew "unzip"
 brew "ag"
+brew "stow"
 
 brew "zoxide"
 brew "eza"
