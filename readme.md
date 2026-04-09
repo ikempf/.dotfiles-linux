@@ -1,14 +1,31 @@
 # Linux setup
 
 ## Checkout this repository
-```
-git init .
-git remote add origin git@github.com:ikempf/.dotfiles-linux.git
+```bash
 ssh-keygen -t ed25519 -C "<email>"
-git pull origin master
-git branch --set-upstream-to=origin/master master
 git config --global user.email <>
 git config --global user.name <>
+git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
+```
+
+## Install dotfiles with stow
+```bash
+# Install stow first
+sudo apt install -y stow  # or: brew install stow
+
+cd ~/dotfiles
+
+# Core packages (all machines)
+stow zsh atuin mise nvim tmux
+
+# WSL/Windows-only
+stow alacritty whim windows-terminal wsl
+
+# macOS/Linux with Homebrew
+stow brew
+
+# Remove a package
+stow -D nvim
 ```
 
 ## Dev tooling
@@ -43,6 +60,6 @@ Install LazyVim
 # WSL
 ## Theme 
 Windows terminal: .config/windows-terminal/settings.json
-## Alacrity
+## Alacritty
 Update config and config path
 
