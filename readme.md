@@ -8,17 +8,17 @@ git config --global user.name <>
 git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
 ```
 
+## Dev tooling
+```
+Install jetbrainstoolbox
+Install homebrew
+```
+
 ## Install dotfiles with stow
 ```
 brew install stow
 cd ~/dotfiles
 stow */ 
-```
-
-## Dev tooling
-```
-Install jetbrainstoolbox
-Install homebrew
 ```
 
 ## Sync tooling
