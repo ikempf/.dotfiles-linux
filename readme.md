@@ -11,8 +11,7 @@ git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
 ## Install dotfiles with stow
 ```bash
 # Install stow first
-sudo apt install -y stow  # or: brew install stow
-
+brew install stow
 cd ~/dotfiles
 
 # Core packages (all machines)

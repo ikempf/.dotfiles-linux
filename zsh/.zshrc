@@ -57,8 +57,8 @@ fi
 alias c='clear'
 
 # Local private configuration
-[[ -f ~/.dotfiles/.zshrc.local ]] && source ~/.dotfiles/.zshrc.local
-[[ -z "$DEFAULT_USER" ]] && echo "warning: DEFAULT_USER is not set (define it in ~/.dotfiles/.zshrc.local)"
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -z "$DEFAULT_USER" ]] && echo "warning: DEFAULT_USER is not set (define it in ~/.zshrc.local)"
 
 # LS Colors (generated with: vivid generate catppuccin-frappe)
 [[ -f ~/.dotfiles/.zshrc.ls_colors ]] && source ~/.dotfiles/.zshrc.ls_colors
