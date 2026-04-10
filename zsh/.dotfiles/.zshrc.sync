@@ -40,6 +40,11 @@ _sync-wsl-config() {
   cp "$HOME/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
 }
 
+_sync-stow() {
+  echo "==> Stowing dotfiles..."
+  stow -d "$HOME/dotfiles" -t "$HOME" $(ls -d "$HOME/dotfiles"/*/  | xargs -n1 basename)
+}
+
 _configure-tools() {
   echo "==> Configuring tools..."
   rtk init -g
@@ -49,6 +54,7 @@ _configure-tools() {
 local-sync() {
   _sync-apt
   _sync-brew
+  _sync-stow
   _configure-tools
 
   if grep -qi microsoft /proc/version 2>/dev/null; then
