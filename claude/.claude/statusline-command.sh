@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Claude Code status line
-cat | python3 /home/iljak/.claude/statusline.py
+cat | python3 $HOME/.claude/statusline.py
