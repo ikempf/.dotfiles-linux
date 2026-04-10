@@ -42,7 +42,19 @@ _sync-wsl-config() {
 
 _sync-stow() {
   echo "==> Stowing dotfiles..."
-  stow -d "$HOME/dotfiles" -t "$HOME" $(ls -d "$HOME/dotfiles"/*/  | xargs -n1 basename)
+  local pkgs=($(ls -d "$HOME/dotfiles"/*/ | xargs -n1 basename))
+
+  # Dry-run to find conflicts, back them up
+  stow -n --adopt -d "$HOME/dotfiles" -t "$HOME" "${pkgs[@]}" 2>&1 \
+    | grep '^\s*\* cannot stow' \
+    | sed 's|.*over existing target \(.*\) since.*|\1|' \
+    | while read -r target; do
+        local src="$HOME/$target"
+        echo "==> Backing up $src -> $src.bak"
+        cp "$src" "$src.bak"
+      done
+
+  stow --adopt -d "$HOME/dotfiles" -t "$HOME" "${pkgs[@]}"
 }
 
 _configure-tools() {
