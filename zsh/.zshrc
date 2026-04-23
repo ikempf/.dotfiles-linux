@@ -24,16 +24,19 @@ export PATH="/snap/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # Evals
-## Zoxide
-command -v zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
-## Mise
+## Mise (needed in non-interactive shells too)
 command -v mise &>/dev/null && eval "$(mise activate zsh)"
-## Brew
-command -v brew &>/dev/null && eval "$(brew shellenv zsh)"
-## Atuin
-command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
-## Tirith
-#command -v tirith &>/dev/null && eval "$(tirith init --shell zsh)"
+## Interactive-only evals
+if [[ -o interactive ]]; then
+  ## Zoxide
+  command -v zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
+  ## Brew
+  command -v brew &>/dev/null && eval "$(brew shellenv zsh)"
+  ## Atuin
+  command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
+  ## Tirith
+  #command -v tirith &>/dev/null && eval "$(tirith init --shell zsh)"
+fi
 
 # Aliases
 ## Docker
@@ -48,10 +51,11 @@ alias bat='batcat'
 alias txd='tmux detach'
 ## Eza
 if command -v eza &> /dev/null; then
-  alias ls='eza --icons --group-directories-first --grid'
-  alias la='eza --icons --group-directories-first -lhA'
-  alias lst='eza --icons --group-directories-first --tree -A'
-  alias lat='eza --icons --group-directories-first --tree -lhA'
+  EZA_IGNORE=".git|.idea|.claude|__pycache__|.venv|node_modules|.mypy_cache|.pytest_cache|.ruff_cache|.tox|.nox|.coverage|.cache|dist|.eggs|*.egg-info|.next|.nuxt|.turbo|target"
+  alias ls="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" --grid"
+  alias la="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" -lhA"
+  alias lst="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" --tree -A"
+  alias lat="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" --tree -lhA"
 fi
 ## Other
 alias c='clear'
@@ -66,4 +70,3 @@ alias c='clear'
 # Functions
 [[ -f ~/.dotfiles/.zshrc.functions ]] && source ~/.dotfiles/.zshrc.functions
 [[ -f ~/.dotfiles/.zshrc.sync ]] && source ~/.dotfiles/.zshrc.sync
-
