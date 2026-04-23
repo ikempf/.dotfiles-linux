@@ -34,3 +34,8 @@ Task: $query"
   cmd=$(codex exec --skip-git-repo-check "$prompt" 2>/dev/null | tr -d '\n')
   print -z "$cmd"
 }
+
+# LazyWorktree - cd into selected worktree
+source /home/linuxbrew/.linuxbrew/Caskroom/lazyworktree/1.45.0/shell/functions.zsh
+
+lw() { worktree_jump $(git rev-parse --show-toplevel) "$@"; }
