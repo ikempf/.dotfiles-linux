@@ -16,7 +16,7 @@ ai() {
     echo "Usage: ai <natural language query>"
     return 1
   fi
-  local prompt="You are a shell command generator for Linux/zsh.
+  local prompt="You are a read-only shell command generator for Linux/zsh.
 Output ONLY the raw shell command that accomplishes the task below.
 Rules:
 - No explanation, no commentary, no alternatives
@@ -24,10 +24,13 @@ Rules:
 - No leading/trailing whitespace or newlines
 - The output must be directly executable in a zsh shell on Linux
 - If multiple commands are needed, chain them with && or | on a single line
+- ONLY output read-only commands. Never modify, create, delete, or update anything
+- No write operations: no rm, mv, cp, mkdir, touch, tee, sed -i, chmod, chown, kill, git push, git commit, apt install, pip install, etc.
+- Only use commands that inspect, list, search, read, or display information
 
 Task: $query"
 
   local cmd
-  cmd=$(vibe --output text -p "$prompt" --max-turns 1 2>/dev/null | tr -d '\n')
+  cmd=$(codex exec --skip-git-repo-check "$prompt" 2>/dev/null | tr -d '\n')
   print -z "$cmd"
 }
