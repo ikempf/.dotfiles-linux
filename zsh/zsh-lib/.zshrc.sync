@@ -1,6 +1,7 @@
 _sync-apt() {
   echo "==> Syncing apt packages..."
   local apt_packages=(git curl telnet build-essential zsh)
+  echo "    Packages: ${apt_packages[*]}"
   for pkg in "${apt_packages[@]}"; do
     if ! dpkg -s "$pkg" &>/dev/null; then
       sudo apt install -y "$pkg"
@@ -10,7 +11,7 @@ _sync-apt() {
 
 _sync-brew() {
   echo "==> Syncing brew packages..."
-  brew bundle install --file="$HOME/dotfiles/brew/.dotfiles/Brewfile" --no-upgrade
+  brew bundle install --file="$HOME/dotfiles/brew/Brewfile" --no-upgrade
 }
 
 _sync-wsl-config() {
@@ -54,6 +55,7 @@ _sync-stow() {
         cp "$src" "$src.bak"
       done
 
+  echo "    Packages: ${pkgs[*]}"
   stow --adopt -d "$HOME/dotfiles" -t "$HOME" "${pkgs[@]}"
 }
 
@@ -74,12 +76,12 @@ local-sync() {
   fi
 
   echo "==> Done."
-  git -C "$HOME/dotfiles" rev-parse HEAD > "$HOME/.dotfiles/last-local-sync"
+  git -C "$HOME/dotfiles" rev-parse HEAD > "$HOME/dotfiles/.last-local-sync"
 }
 
 # Auto-prompt on shell startup if dotfiles have changed
 _dotfiles_current_hash=$(git -C "$HOME/dotfiles" rev-parse HEAD 2>/dev/null)
-_dotfiles_last_hash=$(cat "$HOME/.dotfiles/last-local-sync" 2>/dev/null)
+_dotfiles_last_hash=$(cat "$HOME/dotfiles/.last-local-sync" 2>/dev/null)
 if [[ -n "$_dotfiles_current_hash" && "$_dotfiles_current_hash" != "$_dotfiles_last_hash" ]]; then
   echo "==> Dotfiles have changed since last sync. Run local-sync? [y/N] "
   read -r _dotfiles_reply

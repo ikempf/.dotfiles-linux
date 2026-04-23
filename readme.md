@@ -1,6 +1,6 @@
 # Linux setup
 
-## Checkout this repository
+## Bootstrap
 ```
 ssh-keygen -t ed25519 -C "<email>"
 git config --global user.email <>
@@ -8,39 +8,24 @@ git config --global user.name <>
 git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
 ```
 
-## Dev tooling
+## Prerequisites
 ```
-Install jetbrainstoolbox
 Install homebrew
-```
-
-## Install dotfiles with stow
-```
-brew install stow
-cd ~/dotfiles
-stow */ 
-```
-
-## Sync tooling
-```
-local-sync
-```
-
-## Terminal
-```
-Install alacritty
-Install tpm
-```
-
-## OhMyZsh
-```
 Install Oh-my-zsh
 ```
 
-## LazyVim
+## Install dotfiles
 ```
+source ~/dotfiles/zsh/zsh-lib/.zshrc.sync
+local-sync
+```
+
+## Manual installs
+```
+Install jetbrainstoolbox
+Install alacritty
 Install NerdFont
-Install tree-sitter-cli
+Install tpm
 Install LazyVim
 ```
 

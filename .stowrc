@@ -1,3 +1,5 @@
 --no-folding
 --target=~
 --dir=~/dotfiles
+--ignore='zsh-lib'
+--ignore='Brewfile'

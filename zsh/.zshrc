@@ -65,8 +65,8 @@ alias c='clear'
 [[ -z "$DEFAULT_USER" ]] && echo "warning: DEFAULT_USER is not set (define it in ~/.zshrc.local)"
 
 # LS Colors (generated with: vivid generate catppuccin-frappe)
-[[ -f ~/.dotfiles/.zshrc.ls_colors ]] && source ~/.dotfiles/.zshrc.ls_colors
+source "$HOME/dotfiles/zsh/zsh-lib/.zshrc.ls_colors"
 
 # Functions
-[[ -f ~/.dotfiles/.zshrc.functions ]] && source ~/.dotfiles/.zshrc.functions
-[[ -f ~/.dotfiles/.zshrc.sync ]] && source ~/.dotfiles/.zshrc.sync
+source "$HOME/dotfiles/zsh/zsh-lib/.zshrc.functions"
+source "$HOME/dotfiles/zsh/zsh-lib/.zshrc.sync"
