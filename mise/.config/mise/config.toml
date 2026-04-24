@@ -4,8 +4,10 @@ jobs = 1
 [tools]
 java = "latest"
 maven = "latest"
+go = "latest"
 node = "latest"
 python = "latest"
+rust = "latest"
 scala = "latest"
 usage = "latest" # Required for mise shell completions to work properly
 

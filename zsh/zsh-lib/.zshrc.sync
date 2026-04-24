@@ -46,7 +46,7 @@ _sync-stow() {
   local pkgs=($(ls -d "$HOME/dotfiles"/*/ | xargs -n1 basename))
 
   # Dry-run to find conflicts, back them up
-  stow -n --adopt -d "$HOME/dotfiles" -t "$HOME" "${pkgs[@]}" 2>&1 \
+  (cd "$HOME/dotfiles" && stow -n --adopt "${pkgs[@]}") 2>&1 \
     | grep '^\s*\* cannot stow' \
     | sed 's|.*over existing target \(.*\) since.*|\1|' \
     | while read -r target; do
@@ -56,7 +56,7 @@ _sync-stow() {
       done
 
   echo "    Packages: ${pkgs[*]}"
-  stow --adopt -d "$HOME/dotfiles" -t "$HOME" "${pkgs[@]}"
+  (cd "$HOME/dotfiles" && stow --adopt "${pkgs[@]}")
 }
 
 _configure-tools() {
