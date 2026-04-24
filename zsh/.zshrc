@@ -52,8 +52,8 @@ alias txd='tmux detach'
 ## Eza
 if command -v eza &> /dev/null; then
   EZA_IGNORE=".git|.idea|.claude|__pycache__|.venv|node_modules|.mypy_cache|.pytest_cache|.ruff_cache|.tox|.nox|.coverage|.cache|dist|.eggs|*.egg-info|.next|.nuxt|.turbo|target"
-  alias ls="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" --grid"
-  alias la="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" -lhA"
+  alias ls="eza --icons --group-directories-first --grid"
+  alias la="eza --icons --group-directories-first -lhA"
   alias lst="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" --tree -A"
   alias lat="eza --icons --group-directories-first --ignore-glob=\"$EZA_IGNORE\" --tree -lhA"
 fi
