@@ -37,6 +37,7 @@ brew "chafa"
 # AI tools
 cask "claude-code"
 cask "codex"
+cask "cursor-cli"
 brew "mistral-vibe"
 brew "opencode"
 brew "rtk"
