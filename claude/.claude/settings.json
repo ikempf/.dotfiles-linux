@@ -1,25 +1,4 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "rtk hook claude"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash $HOME/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": true
-  },
-  "effortLevel": "high",
   "permissions": {
     "allow": [
       "Bash(ls:*)",
@@ -85,5 +64,27 @@
       "Bash(echo:*)",
       "Bash(printf:*)"
     ]
-  }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
+  },
+  "effortLevel": "xhigh"
 }

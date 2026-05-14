@@ -37,7 +37,7 @@ brew "chafa"
 # AI tools
 cask "claude-code"
 cask "codex"
-cask "cursor-cli"
+# cask "cursor-cli" # Disabled: current Homebrew cask installs a macOS bundle on Linux/WSL
 brew "mistral-vibe"
 brew "opencode"
 brew "rtk"
