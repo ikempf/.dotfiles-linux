@@ -3,3 +3,6 @@
 --dir=~/dotfiles
 --ignore='zsh-lib'
 --ignore='Brewfile'
+--ignore='tmux-bell\.sh'
+--ignore='statusline-command\.sh'
+--ignore='statusline\.py'

@@ -1,0 +1,17 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+personality = "pragmatic"
+
+# Ring the tmux bell when Codex finishes a turn or needs the user.
+# `sh -c` wrapper expands $HOME regardless of how Codex spawns hooks.
+[hooks]
+
+[[hooks.Stop]]
+[[hooks.Stop.hooks]]
+type = "command"
+command = "sh -c '$HOME/dotfiles/scripts/tmux-bell.sh'"
+
+[[hooks.PermissionRequest]]
+[[hooks.PermissionRequest.hooks]]
+type = "command"
+command = "sh -c '$HOME/dotfiles/scripts/tmux-bell.sh'"

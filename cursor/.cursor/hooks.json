@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      { "command": "$HOME/dotfiles/scripts/tmux-bell.sh" }
+    ],
+    "beforeShellExecution": [
+      { "command": "$HOME/dotfiles/scripts/tmux-bell.sh" }
+    ],
+    "beforeMCPExecution": [
+      { "command": "$HOME/dotfiles/scripts/tmux-bell.sh" }
+    ]
+  }
+}

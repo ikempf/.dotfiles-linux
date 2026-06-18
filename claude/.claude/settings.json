@@ -76,11 +76,31 @@
           }
         ]
       }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/scripts/tmux-bell.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/scripts/tmux-bell.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
     "type": "command",
-    "command": "bash $HOME/.claude/statusline-command.sh"
+    "command": "bash $HOME/dotfiles/scripts/statusline-command.sh"
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,

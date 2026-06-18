@@ -59,6 +59,20 @@ _sync-stow() {
   (cd "$HOME/dotfiles" && stow --adopt "${pkgs[@]}")
 }
 
+_sync-codex-skip-worktree() {
+  # Codex auto-rewrites ~/.codex/config.toml (project trust list, [hooks.state]
+  # hashes, etc.). The tracked baseline is a sanitized stub; skip-worktree
+  # masks those local mutations from `git status`. skip-worktree is a
+  # per-clone index bit (not stored in git), so re-apply it idempotently.
+  local file="codex/.codex/config.toml"
+  local repo="$HOME/dotfiles"
+  if git -C "$repo" ls-files --error-unmatch -- "$file" &>/dev/null \
+      && ! git -C "$repo" ls-files -v -- "$file" | grep -q '^S'; then
+    echo "==> Applying skip-worktree to $file"
+    git -C "$repo" update-index --skip-worktree -- "$file"
+  fi
+}
+
 _configure-tools() {
   echo "==> Configuring tools..."
   rtk init -g
@@ -69,6 +83,7 @@ local-sync() {
   _sync-apt
   _sync-brew
   _sync-stow
+  _sync-codex-skip-worktree
   _configure-tools
 
   if grep -qi microsoft /proc/version 2>/dev/null; then
