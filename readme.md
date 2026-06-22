@@ -11,7 +11,9 @@ git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
 ## Prerequisites
 ```
 Install homebrew
+Install zsh (brew)
 Install Oh-my-zsh
+chsh -s /usr/bin/zsh
 ```
 
 ## Install dotfiles
