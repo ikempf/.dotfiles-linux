@@ -3,8 +3,6 @@
 ## Bootstrap
 ```
 ssh-keygen -t ed25519 -C "<email>"
-git config --global user.email <>
-git config --global user.name <>
 git clone git@github.com:ikempf/.dotfiles-linux.git ~/dotfiles
 ```
 
@@ -21,6 +19,9 @@ chsh -s /usr/bin/zsh
 source ~/dotfiles/zsh/zsh-lib/.zshrc.sync
 local-sync
 ```
+
+## Machine-local  identity
+Setup local `.zshrc.local` and `.gitconfig.local`
 
 ## Manual installs
 ```
