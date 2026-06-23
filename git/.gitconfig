@@ -1,0 +1,24 @@
+[init]
+	defaultBranch = main
+
+[core]
+	autocrlf = input
+	eol = lf
+
+[fetch]
+	prune = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[pull]
+	rebase = false
+
+[push]
+	autoSetupRemote = true
+
+[rerere]
+	enabled = true
+
+[tag]
+	sort = version:refname
