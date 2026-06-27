@@ -1,0 +1,7 @@
+custom_themes:
+  catppuccin-frappe:
+    base: catppuccin-mocha
+    accent: "#FF6B9D"
+
+theme: catppuccin-mocha
+

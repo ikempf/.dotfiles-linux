@@ -19,6 +19,7 @@ Each top-level directory falls in one of three roles:
 | `claude/`           | stow | Claude Code config (`~/.claude/settings.json`)                         |
 | `codex/`            | stow | Codex CLI baseline (`~/.codex/config.toml`); sanitized stub, see `_sync-codex-skip-worktree` |
 | `cursor/`           | stow | Cursor CLI hooks (`~/.cursor/hooks.json`)                              |
+| `lazyworktree/`     | stow | LazyWorktree config (`~/.config/lazyworktree/config.yaml`)             |
 | `mise/`             | stow | mise runtime version manager                                           |
 | `nvim/`             | stow | Neovim (LazyVim) config (`~/.config/nvim/`)                            |
 | `opencode/`         | stow | opencode CLI config + `plugins/bell.ts` (rings tmux on `session.idle` / `permission.asked` / `question.asked`) |
