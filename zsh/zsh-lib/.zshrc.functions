@@ -36,6 +36,13 @@ Task: $query"
 }
 
 # LazyWorktree - cd into selected worktree
-source /home/linuxbrew/.linuxbrew/Caskroom/lazyworktree/1.45.0/shell/functions.zsh
-
-lw() { worktree_jump $(git rev-parse --show-toplevel) "$@"; }
+if (( $+commands[brew] )); then
+  _lazyworktree_functions=(
+    "${commands[brew]:h:h}"/Caskroom/lazyworktree/*/shell/functions.zsh(N)
+  )
+  if (( ${#_lazyworktree_functions} )); then
+    source "${_lazyworktree_functions[-1]}"
+    lw() { worktree_jump $(git rev-parse --show-toplevel) "$@"; }
+  fi
+  unset _lazyworktree_functions
+fi
