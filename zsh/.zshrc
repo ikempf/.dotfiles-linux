@@ -59,6 +59,8 @@ if command -v eza &> /dev/null; then
 fi
 ## Other
 alias c='clear'
+alias lzg='lazygit'
+alias lzd='lazydocker'
 
 # Local private configuration
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
