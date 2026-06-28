@@ -1,4 +1,4 @@
-tap "gromgit/brewtils"
+#tap "gromgit/brewtils"
 
 # Dev tooling
 brew "mise"
