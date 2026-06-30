@@ -68,6 +68,7 @@ alias c='clear'
 alias lzg='lazygit'
 alias lzd='lazydocker'
 alias lzs='lazysql'
+alias cursor='agent --auto-review'
 
 # Local private configuration
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
