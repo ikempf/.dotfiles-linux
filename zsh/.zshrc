@@ -38,6 +38,12 @@ if [[ -o interactive ]]; then
   #command -v tirith &>/dev/null && eval "$(tirith init --shell zsh)"
 fi
 
+# Editor
+export EDITOR=nvim
+export VISUAL=nvim
+export GIT_EDITOR=nvim
+export SQL_EDITOR=nvim
+
 # Aliases
 ## Docker
 alias dockerContainerRemove='docker rm -f $(docker ps -a -q)'
@@ -61,6 +67,7 @@ fi
 alias c='clear'
 alias lzg='lazygit'
 alias lzd='lazydocker'
+alias lzs='lazysql'
 
 # Local private configuration
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

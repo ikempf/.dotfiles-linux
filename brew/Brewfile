@@ -25,6 +25,7 @@ brew "ranger"
 brew "taproom"
 brew "lazydocker"
 brew "lazygit"
+brew "lazysql"
 tap "chmouel/lazyworktree", "https://github.com/chmouel/lazyworktree"
 cask "lazyworktree"
 
