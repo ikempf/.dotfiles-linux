@@ -65,7 +65,7 @@
       "Bash(printf:*)"
     ]
   },
-  "model": "opus",
+  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
@@ -74,15 +74,6 @@
           {
             "type": "command",
             "command": "rtk hook claude"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/iljak/.claude/hooks/rtk-rewrite.sh"
           }
         ]
       }
