@@ -73,6 +73,21 @@ _sync-codex-skip-worktree() {
   fi
 }
 
+_sync-claude-skip-worktree() {
+  # Claude Code auto-rewrites ~/.claude/settings.json (chosen model, effort
+  # level, enabled plugins, tui/theme, etc.). The tracked baseline is a
+  # sanitized version; skip-worktree masks those local mutations from
+  # `git status`. skip-worktree is a per-clone index bit (not stored in git),
+  # so re-apply it idempotently.
+  local file="claude/.claude/settings.json"
+  local repo="$HOME/dotfiles"
+  if git -C "$repo" ls-files --error-unmatch -- "$file" &>/dev/null \
+      && ! git -C "$repo" ls-files -v -- "$file" | grep -q '^S'; then
+    echo "==> Applying skip-worktree to $file"
+    git -C "$repo" update-index --skip-worktree -- "$file"
+  fi
+}
+
 _configure-tools() {
   echo "==> Configuring tools..."
   rtk init -g
@@ -84,6 +99,7 @@ local-sync() {
   _sync-brew
   _sync-stow
   _sync-codex-skip-worktree
+  _sync-claude-skip-worktree
   _configure-tools
 
   if grep -qi microsoft /proc/version 2>/dev/null; then

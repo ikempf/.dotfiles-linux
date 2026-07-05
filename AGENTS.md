@@ -16,7 +16,7 @@ Each top-level directory falls in one of three roles:
 | `alacritty/`        | stow | Alacritty terminal (`~/.config/alacritty/`)                            |
 | `atuin/`            | stow | Atuin shell history (`~/.config/atuin/`)                               |
 | `brew/`             | tool | `Brewfile` consumed by `_sync-brew` (excluded from stow via `.stowrc`) |
-| `claude/`           | stow | Claude Code config (`~/.claude/settings.json`)                         |
+| `claude/`           | stow | Claude Code config (`~/.claude/settings.json`); sanitized baseline, see `_sync-claude-skip-worktree` |
 | `codex/`            | stow | Codex CLI baseline (`~/.codex/config.toml`); sanitized stub, see `_sync-codex-skip-worktree` |
 | `cursor/`           | stow | Cursor CLI hooks (`~/.cursor/hooks.json`)                              |
 | `lazyworktree/`     | stow | LazyWorktree config (`~/.config/lazyworktree/config.yaml`)             |
