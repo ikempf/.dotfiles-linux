@@ -59,6 +59,13 @@ _sync-stow() {
   (cd "$HOME/dotfiles" && stow --adopt "${pkgs[@]}")
 }
 
+_sync-bat-cache() {
+  if command -v bat &>/dev/null; then
+    echo "==> Rebuilding bat theme cache..."
+    bat cache --build
+  fi
+}
+
 _sync-codex-skip-worktree() {
   # Codex auto-rewrites ~/.codex/config.toml (project trust list, [hooks.state]
   # hashes, etc.). The tracked baseline is a sanitized stub; skip-worktree
@@ -98,6 +105,7 @@ local-sync() {
   _sync-apt
   _sync-brew
   _sync-stow
+  _sync-bat-cache
   _sync-codex-skip-worktree
   _sync-claude-skip-worktree
   _configure-tools
