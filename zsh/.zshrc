@@ -48,8 +48,10 @@ export SQL_EDITOR=nvim
 ## Docker
 alias dockerContainerRemove='docker rm -f $(docker ps -a -q)'
 alias dockerImageRemove='docker rmi -f $(docker images -q)'
+alias dockerNetworkRemove='docker network rm $(docker network ls -qf dangling=true)'
 alias dockerVolumeRemove='docker volume rm $(docker volume ls -qf dangling=true)';
 alias dockerRemove='dockerContainerRemove'
+alias dockerRemoveAll='dockerContainerRemove; dockerNetworkRemove; dockerVolumeRemove'
 alias dockerSoftRemove='docker container prune -f'
 ## Bat
 alias bat='batcat'
