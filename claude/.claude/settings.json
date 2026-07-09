@@ -63,8 +63,10 @@
       "Bash(wget:*)",
       "Bash(echo:*)",
       "Bash(printf:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
