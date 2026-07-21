@@ -66,7 +66,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -106,10 +106,10 @@
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "context7@claude-plugins-official": false,
+    "rust-analyzer-lsp@claude-plugins-official": false
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "tui": "default",
   "theme": "auto"
 }
