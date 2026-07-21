@@ -23,6 +23,7 @@ Each top-level directory falls in one of three roles:
 | `mise/`             | stow | mise runtime version manager                                           |
 | `nvim/`             | stow | Neovim (LazyVim) config (`~/.config/nvim/`)                            |
 | `opencode/`         | stow | opencode CLI config + `plugins/bell.ts` (rings tmux on `session.idle` / `permission.asked` / `question.asked`) |
+| `rio/`              | stow | Rio terminal (`~/.config/rio/`); WSL/Windows copy synced by `_sync-wsl-config` |
 | `scripts/`          | tool | Shared helpers referenced by absolute path (`tmux-bell.sh`, Claude `statusline-command.sh` + `statusline.py`) |
 | `tmux/`             | stow | tmux config (`~/.config/tmux/tmux.conf`)                               |
 | `whim/`             | stow | Whim window manager (Windows-side, synced via WSL)                     |

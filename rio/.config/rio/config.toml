@@ -1,0 +1,22 @@
+# See the full configuration reference: https://rioterm.com/docs/config
+
+confirm-before-quit = false
+theme = "catppuccin-frappe"
+line-height = 1.0
+
+[window]
+decorations = "Disabled"
+colorspace = "srgb"
+
+[fonts]
+size = 14
+family = "Hack Nerd Font Mono"
+
+[fonts.bold]
+style = "Bold"
+
+# @BEGIN_WSL
+#[shell]
+#program = "wsl"
+#args = ["--cd", "~"]
+# @END_WSL

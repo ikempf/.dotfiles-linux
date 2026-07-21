@@ -39,6 +39,15 @@ _sync-wsl-config() {
     "$HOME/.config/alacritty/alacritty.toml" \
     > "$alacritty_dest/alacritty.toml"
   cp "$HOME/.config/alacritty/catppuccin-frappe.toml" "$alacritty_dest/"
+
+  echo "==> Syncing Rio config (WSL)..."
+  local rio_dest="$DEFAULT_WIN_USER_FOLDER/AppData/Local/rio"
+  mkdir -p "$rio_dest/themes"
+  sed \
+    -e '/# @BEGIN_WSL/,/# @END_WSL/{ /# @BEGIN_WSL\|# @END_WSL/d; s/^#//; }' \
+    "$HOME/.config/rio/config.toml" \
+    > "$rio_dest/config.toml"
+  cp "$HOME/.config/rio/themes/catppuccin-frappe.toml" "$rio_dest/themes/"
 }
 
 _sync-stow() {
