@@ -35,4 +35,5 @@ Install rio
 Install NerdFont (install all variants)
 Install tpm
 Install LazyVim
+Install OpenWhisper
 ```
